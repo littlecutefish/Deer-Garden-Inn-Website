@@ -1,60 +1,112 @@
-/*Import the fonts used*/
-@import url('https://fonts.googleapis.com/css?family=Courgette|Open+Sans:400,800&display=swap');
-/*Basic reset*/
-*,
-*::before,
-*::after {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-}
-/*Custom properties*/
+/* Variables */
 :root {
-    --dark-color: #2d2c2c;
-    --purple-solid: #350a4f;
-    --purple-transparent: rgba(53, 10, 79, .7);
-    --purple-transparent-alt: rgba(53, 10, 79, .5);
-    --purple-light: #8f50fb;
-    --yellow-solid: #fa9e2c;
-    --gradient-color: linear-gradient(to right, var(--yellow-solid), var(--purple-light));
-    --gradient-color-alt: linear-gradient(to right, var(--purple-light), var(--yellow-solid));
+  --white: #ffffff;
+  --tan: #f0dfb2;
+  --hover-brown: #c7aa93;
+  --dark-brown: #5C4033;
 }
 
-body, ul, li, a {
-    margin: 0;
-    padding: 0;
-    list-style: none;
-    text-decoration: none;
-    font-family: "Arial", sans-serif;
-  }
-  
-  /* 導航欄樣式 */
-  .navbar {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    /* background-color: #4e3a2c; */
-    padding: 5px 20px;
-  }
-  
-  .logo img {
-    height: 40px;
-    object-fit: contain;
-  }
-  
-  nav ul {
-    display: flex;
-    gap: 20px;
-  }
-  
-  nav ul li a {
-    color: #000000; 
-    font-size: 16px;
-    font-weight: bold;
-    padding: 10px 15px;
-    transition: color 0.3s ease;
-  }
-  
-  nav ul li a:hover {
-    color: #f0c040; /* 懸停時的金黃色 */
-  }
+/* Global Styles */
+body {
+  background-color: var(--white);
+  color: var(--white);
+  font-family: "Open Sans", Arial, sans-serif;
+  margin: 0;
+  padding: 0;
+  overflow-x: hidden;
+}
+
+html {
+  box-sizing: border-box;
+}
+
+*, *::before, *::after {
+  box-sizing: inherit;
+}
+
+/* Navbar */
+.navbar {
+  position: fixed;  /* 改為 position: fixed */
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: auto;    /* 明確設定導航欄高度 */
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  background-color: rgba(0, 0, 0, 0.3);
+  padding: 0px 0px;
+  z-index: 100;
+}
+
+
+.navbar .logo img {
+  height: 40px;
+}
+
+.navbar .logo-text h1 {
+  font-size: 2rem;
+  font-weight: bold;
+  color: var(--tan);
+  margin-left: 10px;
+}
+
+nav {
+  margin-left: auto;
+}
+
+nav ul {
+  display: flex;
+  gap: 10px;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+nav ul li a {
+  color: var(--white);
+  font-size: 1rem;
+  font-weight: bold;
+  text-decoration: none;
+  padding: 10px 15px;
+  transition: color 0.3s ease;
+}
+
+nav ul li a:hover {
+  color: var(--hover-brown);
+  border-radius: 5px;
+}
+
+.cover {
+  position: relative;
+  width: 100%;
+  height: 400px; 
+  background-image: url("images/navbar-background.png");
+  background-size: cover;
+  background-position: center;
+  background-attachment: fixed;
+  z-index: 0;
+}
+
+/* 封面文字居中样式 */
+.cover .text {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  text-align: center;
+  color: #fff;
+  z-index: 1;
+}
+
+.cover .text h1 {
+  font-size: 3rem;
+  font-weight: bold;
+  margin-bottom: 10px;
+  text-shadow: 1px 1px 5px rgba(0, 0, 0, 0.7);
+}
+
+.cover .text p {
+  font-size: 1.5rem;
+  text-shadow: 1px 1px 5px rgba(0, 0, 0, 0.7);
+}
